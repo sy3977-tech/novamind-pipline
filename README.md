@@ -1,47 +1,29 @@
-# NovaMind AI Marketing Pipeline
+# NovaMind Marketing Pipeline
 
-An automated marketing pipeline that generates, distributes, and analyzes blog + newsletter content using Groq/Llama AI and HubSpot CRM. Built for NovaMind, a fictional AI startup helping creative agencies automate their workflows.
+An automated system for generating, distributing, and analyzing blog and newsletter content using Groq's Llama AI and HubSpot CRM integration.
 
-## Architecture & Flow
+## How It Works
 
 ```
-Topic Input (e.g. "AI in creative automation")
-    ↓
-[Step 1] content_generator.py
-    → Groq/Llama generates blog post (400-600 words)
-    → Generates 3 personalized newsletter versions (one per persona)
-    → Saves to output/campaigns/content_TIMESTAMP.json
-    ↓
-[Step 2] crm_manager.py
-    → Creates/updates mock contacts in HubSpot CRM
-    → Segments contacts by persona
-    → Logs campaign (title, newsletter, send date) as HubSpot notes
-    → Saves to output/campaigns/crm_log_TIMESTAMP.json
-    ↓
-[Step 3] performance_tracker.py
-    → Simulates realistic engagement metrics (open rate, click rate, unsubscribe rate)
-    → Groq/Llama generates AI-powered performance summary + recommendations
-    → Saves to output/campaigns/performance_TIMESTAMP.json
-    ↓
-[Step 4] optimizer.py  ← Bonus Feature
-    → Suggests 5 next blog topics based on engagement trends
-    → Generates 5 alternative headlines for A/B testing
-    → Provides specific revision suggestions for lowest-performing newsletter
-    → Saves to output/campaigns/optimization_TIMESTAMP.json
-    ↓
-[Dashboard] dashboard.py  ← Bonus Feature
-    → Web UI at http://127.0.0.1:8080
-    → View all results across 4 tabs: Overview, Content, Performance, AI Optimization
-    → Trigger the full pipeline directly from the browser
+1. Input topic
+   ↓
+2. Generate blog + newsletters (content_generator.py)
+   ↓
+3. Create contacts in HubSpot (crm_manager.py)
+   ↓
+4. Track performance (performance_tracker.py)
+   ↓
+5. Suggest optimizations (optimizer.py)
+   ↓
+6. Web dashboard to view results (dashboard.py)
 ```
 
-## Personas Targeted
+## Personas
 
-| Persona | Description |
-|---|---|
-| `creative_professional` | Freelance designers and creative directors at small agencies |
-| `startup_founder` | Non-technical founders automating team workflows without engineers |
-| `marketing_manager` | Marketing managers at mid-size companies exploring AI tools |
+Generates content for three target audiences:
+- **creative_professional** - Freelance designers and creative directors
+- **startup_founder** - Non-technical founders
+- **marketing_manager** - Marketing managers at mid-size companies
 
 ## Setup
 
